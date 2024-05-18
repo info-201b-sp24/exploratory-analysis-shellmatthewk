@@ -127,9 +127,19 @@ The last 4 variables are all similar to each other. I found the average scores (
 
 ### Table
 
-Include a table of aggregate information
+Table sorted by average hours listened per day, and the frequencies of each genre of music, and mental health score according to that amount of hours listened per day. 
 
-Describe why you included the table and what information it reveals
+I specifically mapped each string of "Never," "Rarely," "Sometimes," and "Very frequently" to numeric values, to compare them to hours listened per day. Thus, it can be viewed in an aggregate table in the potential relationship and which genres are listened to the most as more hours are listened through the day. I also included each individual mental score within that data so that those values can also be compared to hours listened, and frequency of each genre. 
+
+This table reveals that the highest mental scores tend to be at around the average hours listened to in the table. This information could explain a deeper correlation between hours, age, and mental health score. 
+
+```{r load-table1, echo = FALSE, results = 'asis', message = FALSE, warning = FALSE}
+library(dplyr)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+source("aggregate_data.R")
+```
 
 ### Chart 1
 

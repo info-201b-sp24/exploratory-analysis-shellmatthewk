@@ -13,19 +13,10 @@ df <- df_mentalhealth %>%
   select(-(`While working`:`Foreign languages`)) %>%
   select(-(`Music effects`:`Permissions`))
 
-#Move columns around 
-last_4_columns <- df[, (ncol(df) - 3):ncol(df)]
-df <- df[, -(ncol(df) - 3):ncol(df)]
-df <- cbind(df[, 1:2], last_4_columns, df[, 3:ncol(df)])
-df <- df[, 1:(ncol(df) - 4)]
 
 #Change column names to be more readable
 colnames(df) <- c("Age",
                   "Hours per day",
-                  "Anxiety Score",
-                  "Depression Score",
-                  "Insomnia Score",
-                  "OCD Score",
                   "Classical Frequency",
                   "Country Frequency",
                   "EDM Frequency",
@@ -41,7 +32,11 @@ colnames(df) <- c("Age",
                   "R&B Frequency",
                   "Rap Frequency",
                   "Rock Frequency",
-                  "Video Game Music Frequency"
+                  "Video Game Music Frequency",
+                  "Anxiety Score",
+                  "Depression Score",
+                  "Insomnia Score",
+                  "OCD Score"
                   )
 df <- df[-1, ]
 
@@ -75,10 +70,6 @@ summary_stats <- df %>%
     Num_Entries = n(),
     Avg_Age = round(mean(Age, na.rm = TRUE), digits = 2),
     Avg_Hours_Per_Day = round(mean(`Hours per day`, na.rm = TRUE), digits = 2),
-    Avg_Anxiety_Score = round(mean(`Anxiety Score`, na.rm = TRUE), digits = 2),
-    Avg_Depression_Score = round(mean(`Depression Score`, na.rm = TRUE), digits = 2),
-    Avg_Insomnia_Score = round(mean(`Insomnia Score`, na.rm = TRUE), digits = 2),
-    Avg_OCD_Score = round(mean(`OCD Score`, na.rm = TRUE), digits = 2),
     Avg_Classical_Frequency = round(mean(`Classical Frequency`, na.rm = TRUE), digits = 2),
     Avg_Country_Frequency = round(mean(`Country Frequency`, na.rm = TRUE), digits = 2),
     Avg_EDM_Frequency = round(mean(`EDM Frequency`, na.rm = TRUE), digits = 2),
@@ -94,10 +85,18 @@ summary_stats <- df %>%
     Avg_R_B_Frequency = round(mean(`R&B Frequency`, na.rm = TRUE), digits = 2),
     Avg_Rap_Frequency = round(mean(`Rap Frequency`, na.rm = TRUE), digits = 2),
     Avg_Rock_Frequency = round(mean(`Rock Frequency`, na.rm = TRUE), digits = 2),
-    Avg_Video_Game_Music_Frequency = round(mean(`Video Game Music Frequency`, na.rm = TRUE), digits = 2)
+    Avg_Video_Game_Music_Frequency = round(mean(`Video Game Music Frequency`, na.rm = TRUE), digits = 2),
+    Avg_Anxiety_Score = round(mean(`Anxiety Score`, na.rm = TRUE), digits = 2),
+    Avg_Depression_Score = round(mean(`Depression Score`, na.rm = TRUE), digits = 2),
+    Avg_Insomnia_Score = round(mean(`Insomnia Score`, na.rm = TRUE), digits = 2),
+    Avg_OCD_Score = round(mean(`OCD Score`, na.rm = TRUE), digits = 2)
   ) 
-  
-#fit to HTML
 
-music_table <- kable(summary_stats, format = "html", music_table = "class='table table-striped'")
+#fit to HTML
+music_table <- summary_stats %>%
+  kable(format = "html", table_class = "table table-striped") %>%
+  kable_styling(full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) %>%
+  row_spec(row = 1:nrow(summary_stats), extra_css = "border-bottom: solid 1px #dddddd;")
+
 print(music_table)
