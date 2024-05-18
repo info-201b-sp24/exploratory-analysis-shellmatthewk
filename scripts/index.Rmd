@@ -134,7 +134,7 @@ Table sorted by average hours listened per day, and the frequencies of each genr
 
 I specifically mapped each string of "Never," "Rarely," "Sometimes," and "Very frequently" to numeric values, to compare them to hours listened per day. Thus, it can be viewed in an aggregate table in the potential relationship and which genres are listened to the most as more hours are listened through the day. I also included each individual mental score within that data so that those values can also be compared to hours listened, and frequency of each genre. 
 
-This table reveals that the highest mental scores tend to be at around the average hours listened to in the table. This information could explain a deeper correlation between hours, age, and mental health score. 
+This table reveals that the highest mental scores tend to be at around the average hours listened to in the table. This information could explain a deeper correlation between hours, age, and mental health score. This table was grouped by hours per day in specific.
 
 ```{r load-table1, echo = FALSE, results = 'asis', message = FALSE, warning = FALSE}
 library(dplyr)
