@@ -1,7 +1,7 @@
 library(dplyr)
 library(tidyverse)
 library(stringr)
-file <- 'Documents/Info201Code/final-project-proposal-shellmatthewk/MentalHealthResults.csv'
+file <- '/Users/matthewkshell/Documents/Info201Code/exploratory-analysis-shellmatthewk/scripts/MentalHealthResults.csv'
 df_mental <- read_csv(file)
 View(df_mental)
 summary_info <- list()

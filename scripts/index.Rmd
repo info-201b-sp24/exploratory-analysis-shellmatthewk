@@ -1,0 +1,162 @@
+---
+title: "Exploratory Analysis"
+output: html_document
+---
+
+```{r load-table, echo = FALSE, results = 'asis', message = FALSE, warning = FALSE}
+library(dplyr)
+library(tidyverse)
+library(knitr)
+```
+
+## Project title
+
+Mental Health Trends and Listening to Music 
+
+### Authors
+
+Matthew Shell (mshellk@uw.edu)
+
+### Date
+
+Spring 2024
+
+### Abstract
+
+Our main question is whether or not the genre of music, or hours listened has any correlation with the mental health condition of the user. We are concerned with this because it can give us an idea of the future or any possible current factors to the cause of someone's mental health. In all, this is important because as of recent, the concerns of mental health for the youth is a growing problem and diving deeper into potential causes can be helpful for the greater good.
+
+### Keywords
+
+- Mental health
+- Music / genre
+- Potential causes
+- Survey Data
+
+### Introduction  
+
+One of the main points of discussion in my life around wintertime are people discussing Spotify wrapped, and finals right before we head into Winter Break. We would proceed to discuss our top artists, genres, and most of all, minutes played throughout the entire year. My list, would usually top everyone else's with over 100,000 minutes played in the entire year. Then came the questions: Am I okay? Is it healthy for me to be listening to this much music every hour of the day? Should I be doing this even when working? And then came the revelation to try to find data related to these specific issues that I have been having when discussing the time spent listening to music while regular daily activities.
+
+A lot of my time spent listening to music isn't directly listening to it, a lot of that time is spent doing work with Spotify in the background, some of that time while exercising, and some of that time when I don't even realize it. Another question that popped into my head during this time was the connection between those around me and what they do. All of our music tastes tend to range from slow EDM to rap, all of us, coincidentally in different mental states at that time. This finally had me considering the correlation, if any, or relationship, between time spend listening to music, genre listening to, and the mental health condition at the time. This led me to where I am, with a dataset almost perfectly aligned to what I was looking for.
+
+Leading to the potential questions to find an answer to, I was thinking a potential connection to real world studies and what relates between this mini-study and another one conducted by scientists. Thus, since listening to music is almost a common factor for everyone, if there can be a cause almost pinpointed to somewhere in the data, we can become closer to figuring out solutions and/or connections to this big societal issue.
+
+Potential Research Questions:
+- Is there a connection between hours listened per day and mental health?
+- How does the hours of music listened vary between genres listened?
+- Does the genre, or hours listened to have a greater impact on mental health?
+
+### Related Work  
+
+This first article by Chen, discusses the influence of music on the hearing and especially, the mental health of adolescents. Just like me, Chen discusses how music plays a large and pivotal role in the lives of younger people, especially during their development of the brain and other cognitive functions. One part of the article by Chen explains that "music serves as an instrument for emotional regulation, assisting individuals in alleviating stress, mitigating anxiety, and bolstering self-confidence" (Chen) which is an extremely close link to potential research questions that arise when looking at the data. Additionally, I would like to compare results from my testing and data analysis with this article to see if these genres of music that tend to depict more emotion align with declining or improving mental health.
+
+Most of these articles are linked to a possible connection between music therapy and quality of life. This study goes more in-depth on the complexity of music and how different genres together can potentially benefit different parts of one's life. Some of these include: "easing a transition to sleep with a soothing playlist, finding motivation for exercise by listening to upbeat dance music, aiding self-expression of emotions by singing, or connecting to others by attending a live musical performance" (Kubiecek). All of these reference a potential link to calming and slower pace of music to ease the mind. Potentially, this project can link to these claims and the complex parts of music, where I link the "calmer" genres together and the "louder" genres together to see if there is a link between the worsening of mental health and loud genres of music, or vice versa.
+
+This article addresses how we can use musical therapy at all points in someones life, especially in healthcare or medical procedures. Interestingly, this can be connected to mood, cognition and behavior as seen how "men who were exposed to music with misogynistic lyrics displayed higher levels of aggressive behavior than did those who were exposed to neutral music" (Rebecchini), and can be mapped to other potential causes. From this experience, we might be able to compare depressing music and its connection to declining mental health and/or bad life or living conditions at that time. This project bridges that gap and can illuminate any possible connection between the genre of music and possibly the type of mental health disorder.
+
+
+
+Citations:
+
+Chen, L. (2023, July 17). Influence of music on the hearing and mental health of adolescents and countermeasures. Frontiers. https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1236638/full
+
+Lorrie Kubicek, M.-B. (2022, July 25). Can music improve our health and quality of life?. Harvard Health. https://www.health.harvard.edu/blog/can-music-improve-our-health-and-quality-of-life-202207252786
+
+Rebecchini, L. (2021, October 21). Music, mental health, and immunity. Brain, behavior, & immunity - health. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8566759/
+
+### The Dataset
+
+> Where did you find the data? Please include a link to the data source
+
+Found on Kaggle, https://www.kaggle.com/datasets/catherinerasgaitis/mxmh-survey-results
+
+> Who collected the data?
+
+Catherine Rasgaitis, current CS @ University of Washington
+
+> How was the data collected or generated?
+
+Was collected via. Google Form after posting through various websites, and advertising in libraries, parks, and other locations.
+For another project, to see if correlations exist between an individual's music taste and their self-reported mental health leading to a potential implementation of musical therapy.
+
+> How many observations (rows) are in your data?
+
+There are 736 rows of data in this dataset.
+
+> How many features (columns) are in the data?
+
+There are 33 columns of data in this dataset.
+
+> What, if any, ethical questions or questions of power do you need to consider when working with this data?
+
+- How much can we generalize based off of survey results (How much of this can be applied to a larger group of people?)
+- What are the potential sources of bias and error in this data? How can we counter these in the analysis?
+- Can this data potentially be used to discriminate against potential groups of people?
+- Can I be sure that this analysis is fair and truthful for people?
+
+> What are possible limitations or problems with this data?
+
+One of the potential issues that arise when using this dataset is from where the data was taken. As the data was taken from multiple places, such as Reddit, Discord, public libraries, parks, etc. it's hard to control whether or not some of the datapoints should be taken more seriously than others. Especially, a public library would get more serious responses to this prompt on mental health, and discord would be more likely to be a "joking" or unserious manner. Additionally, this data does not include the location at where the data was taken, which could be a limiting factor in a person's mood or perspective when they write down the level of their mental health, anxiety, insomnia or OCD level.
+
+Another thing to consider with this data is the ages at which was surveyed. A majority of the ages span from 18-25, which, could be important when considering mental health from these ages, (also something that could be explored in this project!) but if we are considering the whole population could be a limiting factor. As the ages get older the more infrequent they become in the dataset, the data becomes skewed to the right, adjusting the data to be oriented for younger populations rather than for everyone.
+
+### Implications
+
+For technologists or producers, this could be a horrible advancement or discovery for the industry. If there is a clear correlation between music and mental health, there is no doubt that the industry will eventually shift to allow people to advertise their productions/music based on the claims that "these albums will benefit your mental health" or "listening to this will make your mental health worse" when trying to dock down the competition around. There could potentially be significant economic impacts by this discovery, and will completely change how people view certain types of music if they have any connections or personal history with mental health, or anything the data leads conclusions to.
+
+There could be potential shifts in policies being made towards how the music industry produces music. If the results are conclusive enough, it is possible that this could be cited in a similar manner to how TikTok is currently in the works of being banned - to where we could see some genres of music being banned from being produced. People could end up manipulating the market, and creating more policies that aren't necessary for this country in this state.
+
+However, this could also work in the other direction in a more positive manner. If there are mental health affects harming someone, and the data points towards a certain genre/time spent, some treatments could involve trying to switch up the music or time listened to the music as an underlying cause.
+
+### Limitations & Challenges
+
+One limitation with this dataset in particular is the limiting amount of data taken in comparison to the entire population. Even though for other questions, 700 rows of data might be enough to come to a conclusion, when considering something with the score of mental health, 700 rows might not be enough data. Ideally, the data would be within the thousands, maybe even ten thousands, to be able to make conclusions on a larger portion of the population.
+
+Additionally, categorizing mental health by just a number will be difficult to answer any question with it. As everyone ranges differently, quantifying the conditions of mental health by just a number doesn't seem morally or ethically correct. For this part of the investigation, however, it might work for graphs and/or charts depicting time and mental health condition. This is also a cha   llenge, however, because there are no specific conditions of these mental health circumstances, where we don't know if someone's 10 is the same as everyone else's 10, and mapping a 10 or a 1 on that scale to a qualitative description is difficult, and something I will have to plan out during this project.
+
+Acknowledgements:
+
+I would like to thank everyone at Synaptech for inspiring me with this idea to connect music and mental health together.
+
+### Summary Information
+
+I summarized 8 quantifiable variables from the data set. Firstly, I found the number of observations in this data set to be 736, which is a considerable amount, but maybe not substantial enough. Secondly, I found the average age of all people in the data set to be around 25.2, which is most likely higher than our average age in the class, but still somewhat close. One thing to note about this variable is that the difference between our brains and the average in the data set is that our brains are still not fully developed, in comparison to the ones in the data set. 
+
+Next, I found the average hours listened per person per day, which was around 3.57. This number doesn't surprise me, as people are most likely listening to music at home or while using transportation, or even working. I calculated the most common streaming platform to be Spotify, at 458 instances out of the total 736. Spotify is one of the most popular music streaming platforms to us, so it makes sense that Spotify is the most common by over 50% of the collected population. 
+
+The last 4 variables are all similar to each other. I found the average scores (0-10 and 10 being the highest) of anxiety, depression, insomnia and OCD from the people that were surveyed. Anxiety started at 5.84, depression at 4.80, insomnia at 3.74, and OCD at 2.64. I cannot make any statements on these variables and why they might be higher, but one thing to be noted is that anxiety and depression are significantly higher than OCD. 
+
+### Table
+
+Include a table of aggregate information
+
+Describe why you included the table and what information it reveals
+
+### Chart 1
+
+I decided to make a new column in the data frame and call it "Average score." I added together all the scores and made an Average score per person, then visualized the average on the chart. Chart 1 is a histogram of average mental health score and the frequency of which those scores occur. The width of each grouping is 0.25, so each group contains scores within a range of 0.25, incremental. In this chart, it can be seen that there is almost a normal distribution of scores, with the most scores taking place near the 4.5-5 range, with a slight skew to the right, looking as if there is a tail on th eright side of the data. 
+
+This can tell us that overall, the average person that took the survey deals with some slight or some variation of a mental health problem, not dependent on the music they listen to, how much, or age. 
+
+``````{r, echo = FALSE, fig.align='center', code = readLines("Chart1.R")}
+``````
+
+### Chart 2
+
+Using a scatter plot, I graphed the amount of hours per day and the same 'average score' column. I wanted to see if there was any visual correlation between the amount of music listened to and the average score of people. 
+
+Seeing as how the data is visualized and dispersed on the graph, there looks to be no actual correlation between hours per day and the average mental score. Ideally, I could see if the amount of hours cause a change in the average score, but since the data seems quite evenly dispersed throughout the data, there are no visible claims that can be made about the data. 
+
+``````{r, echo = FALSE, fig.align='center', code = readLines("Chart2.R")}
+``````
+
+### Chart 3
+
+I made 4 more scatter plots as initial representations of the data, to give an individual representation of each mental health condition versus age, to see if age was the reason for one effect to happen more often than another. 
+
+In each of the graphs, it can be seen that all of the variables seem to be reasonably distributed along the y-axis, meaning that it cannot be concluded if age causes a change in each mental score. However, one of these graphs appears to be different than another, which is the OCD score. This graph seems to be slightly different, as there appears to be less points at the top score. This could possibly tell us that younger people are more likely to have higher OCD scores than older. However, as the rest of the scatter plots are so uniform, there are no conclusions to be made. 
+
+``````{r, echo = FALSE, fig.align='center', warning=FALSE, code = readLines('Age v Anxiety.R')}
+``````{r, echo = FALSE, fig.align='center', warning=FALSE, code = readLines('Age v Depression.R')}
+``````{r, echo = FALSE, fig.align='center', warning=FALSE, code = readLines('Age v Insomnia.R')}
+``````{r, echo = FALSE, fig.align='center', warning=FALSE, code = readLines('Age v OCD.R')}
+``````

@@ -2,8 +2,8 @@ library(dplyr)
 library(tidyverse)
 library(stringr)
 library(ggplot2)
-file <- 'Documents/Info201Code/final-project-proposal-shellmatthewk/MentalHealthResults.csv'
-df <- read_csv(file)
+file <- '/Users/matthewkshell/Documents/Info201Code/exploratory-analysis-shellmatthewk/scripts/MentalHealthResults.csv'
+df <- read_csv(file, show_col_types = FALSE)
 
 ggplot(df, aes(x=df$`Age`, y = df$`Anxiety`)) + 
   geom_point(color = "red") +
