@@ -118,16 +118,19 @@ Acknowledgements:
 I would like to thank everyone at Synaptech for inspiring me with this idea to connect music and mental health together.
 
 ### Summary Information
+```{r summaryinfo, echo=FALSE, message=FALSE}
+library(dplyr)
+source("Summary Information.R")
+```
+I summarized 8 quantifiable variables from the data set. Firstly, I found the number of observations in this data set to be **`r summary_info$num_observations`** which is a considerable amount, but maybe not substantial enough. Secondly, I found the average age of all people in the data set to be around **`r summary_info$average_age`**, which is most likely higher than our average age in the class, but still somewhat close. One thing to note about this variable is that the difference between our brains and the average in the data set is that our brains are still not fully developed, in comparison to the ones in the data set. 
 
-I summarized 8 quantifiable variables from the data set. Firstly, I found the number of observations in this data set to be 736, which is a considerable amount, but maybe not substantial enough. Secondly, I found the average age of all people in the data set to be around 25.2, which is most likely higher than our average age in the class, but still somewhat close. One thing to note about this variable is that the difference between our brains and the average in the data set is that our brains are still not fully developed, in comparison to the ones in the data set. 
+Next, I found the average hours listened per person per day, which was around **`r summary_info$average_hours_listened`**. This number doesn't surprise me, as people are most likely listening to music at home or while using transportation, or even working. I calculated the most common streaming platform to be **`r summary_info$most_common_streaming`** instances out of the total 736. Spotify is one of the most popular music streaming platforms to us, so it makes sense that Spotify is the most common by over 50% of the collected population. 
 
-Next, I found the average hours listened per person per day, which was around 3.57. This number doesn't surprise me, as people are most likely listening to music at home or while using transportation, or even working. I calculated the most common streaming platform to be Spotify, at 458 instances out of the total 736. Spotify is one of the most popular music streaming platforms to us, so it makes sense that Spotify is the most common by over 50% of the collected population. 
-
-The last 4 variables are all similar to each other. I found the average scores (0-10 and 10 being the highest) of anxiety, depression, insomnia and OCD from the people that were surveyed. Anxiety started at 5.84, depression at 4.80, insomnia at 3.74, and OCD at 2.64. I cannot make any statements on these variables and why they might be higher, but one thing to be noted is that anxiety and depression are significantly higher than OCD. 
+The last 4 variables are all similar to each other. I found the average scores (0-10 and 10 being the highest) of anxiety, depression, insomnia and OCD from the people that were surveyed. Anxiety started at **`r summary_info$average_anxiety`**, depression at **`r summary_info$average_depression`**, insomnia at **`r summary_info$average_insomnia`**, and OCD at **`r summary_info$average_OCD`**. I cannot make any statements on these variables and why they might be higher, but one thing to be noted is that anxiety and depression are significantly higher than OCD. 
 
 ### Table
 
-Table sorted by average hours listened per day, and the frequencies of each genre of music, and mental health score according to that amount of hours listened per day. 
+Table sorted by average hours listened per day, and the frequencies of each genre of music, and mental health score according to that amount of hours listened per day. I took out many genres of music to include only some very popular ones, and created the table from there. 
 
 I specifically mapped each string of "Never," "Rarely," "Sometimes," and "Very frequently" to numeric values, to compare them to hours listened per day. Thus, it can be viewed in an aggregate table in the potential relationship and which genres are listened to the most as more hours are listened through the day. I also included each individual mental score within that data so that those values can also be compared to hours listened, and frequency of each genre. 
 
@@ -143,9 +146,9 @@ source("aggregate_data.R")
 
 ### Chart 1
 
-I decided to make a new column in the data frame and call it "Average score." I added together all the scores and made an Average score per person, then visualized the average on the chart. Chart 1 is a histogram of average mental health score and the frequency of which those scores occur. The width of each grouping is 0.25, so each group contains scores within a range of 0.25, incremental. In this chart, it can be seen that there is almost a normal distribution of scores, with the most scores taking place near the 4.5-5 range, with a slight skew to the right, looking as if there is a tail on th eright side of the data. 
+I decided to make a new column in the data frame and call it "Average score." I added together all the scores and made an Average score per person, then visualized the average on the chart. Chart 1 is a histogram of average mental health score and the frequency of which those scores occur. The width of each grouping is 0.25, so each group contains scores within a range of 0.25, incremental. In this chart, it can be seen that there is almost a normal distribution of scores, with the most scores taking place near the 4.5-5 range, with a slight skew to the right, looking as if there is a tail on the right side of the data. 
 
-This can tell us that overall, the average person that took the survey deals with some slight or some variation of a mental health problem, not dependent on the music they listen to, how much, or age. 
+I wanted to see if there was a relationship between average score and mental health score. This can tell us that overall, the average person that took the survey deals with some slight or some variation of a mental health problem, not dependent on the music they listen to, how much, or age. 
 
 ``````{r, echo = FALSE, fig.align='center', code = readLines("Chart1.R")}
 ``````

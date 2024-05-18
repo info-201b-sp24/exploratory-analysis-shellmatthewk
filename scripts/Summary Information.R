@@ -3,7 +3,7 @@ library(tidyverse)
 library(stringr)
 file <- '/Users/matthewkshell/Documents/Info201Code/exploratory-analysis-shellmatthewk/scripts/MentalHealthResults.csv'
 df_mental <- read_csv(file)
-View(df_mental)
+
 summary_info <- list()
 summary_info$num_observations = nrow(df_mental)
 
@@ -64,3 +64,4 @@ average_OCD <- df_mental %>%
   pull(average_OCD)
 
 summary_info$average_OCD <- round(average_OCD, digits = 2)
+
