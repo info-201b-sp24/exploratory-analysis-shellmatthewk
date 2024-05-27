@@ -1,6 +1,6 @@
 # Exploratory Analysis
 
-Link to your group's exploratory analysis here: https://htmlpreview.github.io/?https://github.com/info-201b-sp24/exploratory-analysis-shellmatthewk/blob/main/scripts/index.html
+Link to your group's exploratory analysis here: [GitHub Pages](https://info-201b-sp24.github.io/exploratory-analysis-shellmatthewk/)
 
 (subsitute for your group's GitHub pages site)
 
